@@ -1,0 +1,5 @@
+<div *ngFor="let option of options">
+  <button type="button" class="btn btn-applicationtype" (click)="onOptionSelected(option.value)" [ngClass]="{selectedClassName:selectedOption===option.value,defaultClassName:selectedOption!==option.value}">
+    {{option.displayName}}
+  </button>
+</div>
