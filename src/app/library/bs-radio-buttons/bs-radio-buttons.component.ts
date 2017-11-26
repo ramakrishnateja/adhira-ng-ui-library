@@ -9,15 +9,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class BsRadioButtonsComponent implements OnInit {
 
   @Input() options: Array<SelectableItem<any>>;
+  @Input() selectedOption: any;
+  @Input() selectedClassName: string;
+  @Input() defaultClassName: string;
   @Output() selectionChanged: EventEmitter<SelectableItem<any>>;
-  selectedOption: any;
-  selectedClassName: string;
-  defaultClassName: string;
   constructor() { }
 
   onOptionSelected(option: SelectableItem<any>) {
     this.options.forEach(o => o.isSelected = false);
     option.isSelected = true;
+    this.selectedOption = option;
     if (this.selectionChanged) {
       this.selectionChanged.emit(option);
     }
