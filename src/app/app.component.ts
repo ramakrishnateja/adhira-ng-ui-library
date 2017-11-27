@@ -16,7 +16,7 @@ export class AppComponent {
   }
 
   applicationTypeCategorySelectionChanged(category: SelectableItem<string>): void {
-    this.areaType = category.value;
+    // this.areaType = category.value;
   }
 
   clearSelection(): void {
