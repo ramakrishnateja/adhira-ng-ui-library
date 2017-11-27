@@ -1,10 +1,9 @@
-export class SelectableItem<T> {
+import { SelectionItem } from './selection-item';
+
+export class SelectableItem<T> extends SelectionItem<T> {
   constructor(value: T, displayName: string) {
-    this.value = value;
-    this.displayName = displayName;
+    super(value, displayName);
   }
 
-  value: T;
-  displayName: string;
   isSelected: boolean;
 }
