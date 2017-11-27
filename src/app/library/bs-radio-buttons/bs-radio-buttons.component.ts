@@ -12,15 +12,15 @@ export class BsRadioButtonsComponent implements OnInit {
   @Input() selectedOption: any;
   @Input() selectedClassName: string;
   @Input() defaultClassName: string;
-  @Output() selectionChanged: EventEmitter<SelectableItem<any>>;
+  @Output() optionChanged = new EventEmitter<SelectableItem<any>>();
   constructor() { }
 
   onOptionSelected(option: SelectableItem<any>) {
     this.options.forEach(o => o.isSelected = false);
     option.isSelected = true;
     this.selectedOption = option;
-    if (this.selectionChanged) {
-      this.selectionChanged.emit(option);
+    if (this.optionChanged) {
+      this.optionChanged.emit(option);
     }
   }
 
