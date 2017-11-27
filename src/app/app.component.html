@@ -1,5 +1,4 @@
-<app-bs-radio-buttons [options]="applicationTypeCategories"
-[selectedClassName]="'btn-dark'"
-[defaultClassName]="'btn-light'"
-(optionChanged)="applicationTypeCategorySelectionChanged($event)"
-></app-bs-radio-buttons>
+<app-bs-radio-buttons [options]="applicationTypeCategories" [selectedValue]="areaType" [selectedClassName]="'btn-dark'" [defaultClassName]="'btn-light'"
+  (optionChanged)="applicationTypeCategorySelectionChanged($event)"></app-bs-radio-buttons>
+<button (click)="displaySelectedAreaType()">See Selected AreaType</button>
+<button (click)="clearSelection()">Clear Selection</button>
