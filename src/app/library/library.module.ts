@@ -3,6 +3,7 @@ import { SelectedItemsOnlyPipe } from './../pipes/selected-items-only.pipe';
 import { BsRadioButtonsComponent } from './bs-radio-buttons/bs-radio-buttons.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BsCheckButtonsComponent } from './bs-check-buttons/bs-check-buttons.component';
 
 @NgModule({
   imports: [
@@ -11,10 +12,12 @@ import { CommonModule } from '@angular/common';
   declarations: [
     BsRadioButtonsComponent,
     VisibilityByValuePipe,
-    SelectedItemsOnlyPipe
+    SelectedItemsOnlyPipe,
+    BsCheckButtonsComponent
   ],
   exports: [
     BsRadioButtonsComponent,
+    BsCheckButtonsComponent
   ]
 })
 export class LibraryModule { }

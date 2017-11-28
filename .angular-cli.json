@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "adhira",
       "styles": [
-        "styles.css"
+        "styles/main.scss",
+        "styles/vendor.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

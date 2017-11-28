@@ -1,6 +1,11 @@
-<div *ngFor="let option of options">
+<div class="d-flex justify-content-center align-items-center btn-group flex-wrap" data-toggle="buttons">
+  <label *ngFor="let option of options" (click)="onOptionSelected(option)" class="btn" [ngClass]="option.isSelected?selectedClassName:defaultClassName">
+    <input type="radio" name="options" autocomplete="off"> {{option.displayName}}
+  </label>
+</div>
+<!--<div *ngFor="let option of options">
   <button type="button" class="btn btn-applicationtype" (click)="onOptionSelected(option)"
   [ngClass]="option.isSelected?selectedClassName:defaultClassName">
     {{option.displayName}}
   </button>
-</div>
+</div>-->

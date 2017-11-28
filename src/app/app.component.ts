@@ -8,11 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   applicationTypeCategories: Array<SelectableItem<string>> = new Array<SelectableItem<string>>();
+  countries: Array<SelectableItem<string>> = new Array<SelectableItem<string>>();
+  selectedCountries: string[] = ['US', 'IND', 'ENG'];
   areaType = 'indoor';
   constructor() {
     this.applicationTypeCategories.push(new SelectableItem<string>('indoor', 'Indoor'));
     this.applicationTypeCategories.push(new SelectableItem<string>('outdoor', 'Outdoor'));
     this.applicationTypeCategories.push(new SelectableItem<string>('extraTerrestrial', 'E.T'));
+
+    this.countries.push(new SelectableItem<string>('US', 'USA'));
+    this.countries.push(new SelectableItem<string>('IND', 'INDIA'));
+    this.countries.push(new SelectableItem<string>('SL', 'SRILANKA'));
+    this.countries.push(new SelectableItem<string>('SA', 'SOUTHAFRICA'));
+    this.countries.push(new SelectableItem<string>('ENG', 'ENGLAND'));
   }
 
   applicationTypeCategorySelectionChanged(category: SelectableItem<string>): void {
@@ -21,9 +29,11 @@ export class AppComponent {
 
   clearSelection(): void {
     this.areaType = '';
+    this.selectedCountries = [];
   }
 
   displaySelectedAreaType(): void {
     console.log(this.areaType);
+    console.log(JSON.stringify(this.selectedCountries));
   }
 }

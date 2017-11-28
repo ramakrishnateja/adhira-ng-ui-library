@@ -2,3 +2,9 @@
   (optionChanged)="applicationTypeCategorySelectionChanged($event)"></app-bs-radio-buttons>
 <button (click)="displaySelectedAreaType()">See Selected AreaType</button>
 <button (click)="clearSelection()">Clear Selection</button>
+
+<br>
+<br>
+
+<app-bs-check-buttons [options]="countries" [(selectedValues)]="selectedCountries" [selectedClassName]="'btn-dark'" [defaultClassName]="'btn-light'"></app-bs-check-buttons>
+
