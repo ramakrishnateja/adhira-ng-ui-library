@@ -17,6 +17,8 @@ import { BsCheckButtonsComponent } from './bs-check-buttons/bs-check-buttons.com
   ],
   exports: [
     BsRadioButtonsComponent,
+    VisibilityByValuePipe,
+    SelectedItemsOnlyPipe,
     BsCheckButtonsComponent
   ]
 })
