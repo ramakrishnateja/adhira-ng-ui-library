@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { SelectableItem } from '../../public_api';
 
 @Pipe({
-  name: 'selectedItemsOnly'
+  name: 'selectedItemsOnly',
+  pure: false
 })
 export class SelectedItemsOnlyPipe implements PipeTransform {
 
