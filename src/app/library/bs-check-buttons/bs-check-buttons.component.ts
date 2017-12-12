@@ -43,12 +43,20 @@ export class BsCheckButtonsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
       if (propName && (propName === 'options' || propName === 'selectedValues')) {
-        this.handleSelectedOption(this.selectedValues, this.options);
+        this.handleSelectedOption(this.selectedValues, this.options, changes[propName].firstChange);
       }
     }
   }
 
-  handleSelectedOption(selectedOptions: any[], options: Array<SelectableItem<any>>) {
+  handleSelectedOption(selectedOptions: any[],
+    options: Array<SelectableItem<any>>,
+    isFirstChange: boolean) {
+    this.options.forEach(o => {
+      if (o.isSelected && this.selectedValues.indexOf(o.value) === -1) {
+        this.selectedValues.push(o.value);
+      }
+    });
+
     if (selectedOptions && selectedOptions.length > 0 && options && options.length > 0) {
       options.forEach(o => o.isSelected = selectedOptions.indexOf(o.value) !== -1);
     } else if (options && options.length > 0) {

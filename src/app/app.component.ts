@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   applicationTypeCategories: Array<SelectableItem<string>> = new Array<SelectableItem<string>>();
   countries: Array<SelectableItem<string>> = new Array<SelectableItem<string>>();
-  selectedCountries: string[] = ['US', 'IND', 'ENG'];
+  selectedCountries: string[] = ['US', 'IND'];
   areaType = 'indoor';
   constructor() {
     this.applicationTypeCategories.push(new SelectableItem<string>('indoor', 'Indoor'));
@@ -20,7 +20,9 @@ export class AppComponent {
     this.countries.push(new SelectableItem<string>('IND', 'INDIA'));
     this.countries.push(new SelectableItem<string>('SL', 'SRILANKA'));
     this.countries.push(new SelectableItem<string>('SA', 'SOUTHAFRICA'));
-    this.countries.push(new SelectableItem<string>('ENG', 'ENGLAND'));
+    const eng = new SelectableItem<string>('ENG', 'ENGLAND');
+    eng.isSelected = true;
+    this.countries.push(eng);
   }
 
   applicationTypeCategorySelectionChanged(category: SelectableItem<string>): void {
