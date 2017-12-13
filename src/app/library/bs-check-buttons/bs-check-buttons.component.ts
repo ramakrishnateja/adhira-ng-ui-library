@@ -9,7 +9,7 @@ import { Component, OnInit, Input, EventEmitter, Output, OnChanges, SimpleChange
 export class BsCheckButtonsComponent implements OnInit, OnChanges {
 
   @Input() options: Array<SelectableItem<any>>;
-  @Input() selectedValues: any[];
+  @Input() selectedValues: any[] = [];
   @Input() selectedClassName: string;
   @Input() defaultClassName: string;
   @Output() optionChanged = new EventEmitter<SelectableItem<any>>();
@@ -43,30 +43,23 @@ export class BsCheckButtonsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
       if (propName && (propName === 'options' || propName === 'selectedValues')) {
-        let selectedOptions = this.selectedValues;
-        if (!selectedOptions) {
-          selectedOptions = [];
-        }
-
-        this.handleSelectedOption(selectedOptions, this.options, changes[propName].firstChange);
+        this.handleSelectedOption();
       }
     }
   }
 
-  handleSelectedOption(selectedOptions: any[],
-    options: Array<SelectableItem<any>>,
-    isFirstChange: boolean) {
-    if (options) {
+  handleSelectedOption() {
+    if (this.options) {
       this.options.forEach(o => {
-        if (o.isSelected && selectedOptions.indexOf(o.value) === -1) {
+        if (o.isSelected && this.selectedValues.indexOf(o.value) === -1) {
           this.selectedValues.push(o.value);
         }
       });
     }
 
-    if (selectedOptions && selectedOptions.length > 0 && options && options.length > 0) {
-      options.forEach(o => o.isSelected = selectedOptions.indexOf(o.value) !== -1);
-    } else if (options && options.length > 0) {
+    if (this.selectedValues && this.selectedValues.length > 0 && this.options && this.options.length > 0) {
+      this.options.forEach(o => o.isSelected = this.selectedValues.indexOf(o.value) !== -1);
+    } else if (this.options && this.options.length > 0) {
       this.clearSelections();
     }
   }
