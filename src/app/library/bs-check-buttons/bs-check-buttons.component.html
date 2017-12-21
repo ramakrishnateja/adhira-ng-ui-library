@@ -1,6 +1,6 @@
 
 <div class="d-flex justify-content-center align-items-center btn-group flex-wrap" data-toggle="buttons">
-  <label *ngFor="let option of options" class="btn" [ngClass]="option.isSelected?selectedClassName:defaultClassName">
+  <label *ngFor="let option of options" class="btn" (click)="onOptionSelected(option)" [ngClass]="option.isSelected?selectedClassName:defaultClassName">
       <input type="checkbox"  (click)="onOptionSelected(option)" autocomplete="off"> {{option.displayName}}
   </label>
 </div>
