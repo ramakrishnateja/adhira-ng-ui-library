@@ -1,5 +1,15 @@
 <app-bs-radio-buttons [options]="applicationTypeCategories" [(selectedValue)]="areaType" [selectedClassName]="'btn-dark'" [defaultClassName]="'btn-light'"
   (optionChanged)="applicationTypeCategorySelectionChanged($event)"></app-bs-radio-buttons>
+
+  <div class="btn-group-justified row" style="min-height:75px;" *ngIf="areaType=='indoor'">
+    <app-bs-radio-buttons class="float-right btn-group" [options]="indoorApplicationTypes" [selectedClassName]="'btn-dark'"
+    [defaultClassName]="'btn-outline-secondary'" [(selectedValue)]="selectedApplicationType" (optionChanged)="onApplicationTypeSelectionChanged($event)"></app-bs-radio-buttons>
+</div>
+<div *ngIf="areaType=='outdoor'" style="min-height:75px;" class="btn-group-justified row">
+  <app-bs-radio-buttons class="float-right btn-group" [options]="outdoorApplicationTypes" [selectedClassName]="'btn-dark'"
+  [defaultClassName]="'btn-outline-secondary'" [(selectedValue)]="selectedApplicationType" (optionChanged)="onApplicationTypeSelectionChanged($event)"></app-bs-radio-buttons>
+</div>
+
 <button (click)="displaySelectedAreaType()">See Selected AreaType</button>
 <button (click)="clearSelection()">Clear Selection</button>
 

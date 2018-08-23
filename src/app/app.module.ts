@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { LibraryModule } from './library/library.module';
+import { ReferenceDataService } from './services/referencedataservice.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,10 @@ import { LibraryModule } from './library/library.module';
   ],
   imports: [
     BrowserModule,
-    LibraryModule
+    LibraryModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [ReferenceDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

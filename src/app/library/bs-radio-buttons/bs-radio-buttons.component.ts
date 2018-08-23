@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange
   styleUrls: ['./bs-radio-buttons.component.css']
 })
 export class BsRadioButtonsComponent implements OnInit, OnChanges {
-  @Input() options: Array<SelectableItem<any>>;
+  @Input() options: Array<SelectableItem<any>> = [];
   @Input() selectedValue: any;
   @Input() selectedClassName: string;
   @Input() defaultClassName: string;
